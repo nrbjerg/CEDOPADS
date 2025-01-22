@@ -180,12 +180,12 @@ for idx, file_id in enumerate(["p4.2.a.txt", "p5.2.a.txt", "p6.2.a.txt", "p7.2.a
             for m in range(1, 4 + 1):
                 distances = [dist / m for dist in total_distances[idx]]
                 for jdx, t_max in enumerate(distances):
-                    info = f"n {N + 2}\nm {m}\ntmax {t_max:.1f}\nrmin {sensing_radii[idx]["r_min"]:.2f}\nr_max {sensing_radii[idx]["r_max"]:.2f}\neta {eta:.3f}\nrho {rho:.3f}\n" + X
+                    info = f"n {N + 2}\nm {m}\ntmax {t_max:.1f}\nrmin {sensing_radii[idx]["r_min"]:.2f}\nrmax {sensing_radii[idx]["r_max"]:.2f}\neta {eta:.3f}\nrho {rho:.3f}\n" + X
                     with open(os.path.join(path_to_CEDTOPADS_instances, f"{file_id.split(".")[0]}.{m}.{chr(ord("a") + jdx)}.{chr(ord("a") + rho_idx)}.{chr(ord("a") + eta_idx)}.txt"), "w+") as new_file: 
                         new_file.write(info)
 
             for jdx, t_max in enumerate(total_distances[idx]):
-                info = f"n {N + 2}\ntmax {t_max:.1f}\nrmin {sensing_radii[idx]["r_min"]:.2f}\nr_max {sensing_radii[idx]["r_max"]:.2f}\neta {eta:.3f}\nrho {rho:.3f}\n" + X
+                info = f"n {N + 2}\ntmax {t_max:.1f}\nrmin {sensing_radii[idx]["r_min"]:.2f}\nrmax {sensing_radii[idx]["r_max"]:.2f}\neta {eta:.3f}\nrho {rho:.3f}\n" + X
                 with open(os.path.join(path_to_CEDOPADS_instances, f"{file_id.split(".")[0]}.{m}.{chr(ord("a") + jdx)}.{chr(ord("a") + rho_idx)}.{chr(ord("a") + eta_idx)}.txt"), "w+") as new_file: 
                         new_file.write(info)
 
