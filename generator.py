@@ -160,10 +160,10 @@ for idx, file_id in enumerate(["p4.2.a.txt", "p5.2.a.txt", "p6.2.a.txt", "p7.2.a
         info = [float(x) for x in line.split(" ")]
         plt.scatter(info[0], info[1], s = 2 * (info[2] + 10), color = "black", zorder=2)
 
-        for jdx in range(1, int(len(info) / 2)):
-            phi, theta = info[2 * jdx + 1], info[2 * (jdx + 1)]
-            if theta != 3.142:
-                AngleInterval(phi - theta, phi + theta).plot(np.array([info[0], info[1]]), r_max = sensing_radius, r_min = sensing_radii[idx]["r_min"], fillcolor = "lightgray", edgecolor = "black", alpha = 0.2)
+        for jdx in range(1, len(info) // 2):
+            theta, phi = info[2 * jdx + 1], info[2 * (jdx + 1)] # We need to skip the score.
+            if phi != 3.142:
+                AngleInterval(theta - phi, theta + phi).plot(np.array([info[0], info[1]]), r_max = sensing_radius, r_min = sensing_radii[idx]["r_min"], fillcolor = "lightgray", edgecolor = "black", alpha = 0.2)
             else:
                 plt.gca().add_patch(mpl.patches.Annulus((info[0], info[1]), sensing_radius, sensing_radius - sensing_radii[idx]["r_min"], facecolor="lightgray", edgecolor = "black", alpha = 0.2))
 
